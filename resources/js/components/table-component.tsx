@@ -27,6 +27,10 @@ const TableComponent = <T,>({ data, columns, actions, onCreate, onUpdate }: Tabl
     setCurrentItem(item);
   };
 
+  const openDeleteModal = (item: T) => {
+    console.log('deleted', item.id);
+  }
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -72,6 +76,7 @@ const TableComponent = <T,>({ data, columns, actions, onCreate, onUpdate }: Tabl
                 <TableCell className="py-4 px-6 text-sm text-black dark:text-white">
                   <button onClick={openCreateModal} className="text-blue-500 hover:text-blue-700">Create</button>
                   <button onClick={() => openUpdateModal(item)} className="text-yellow-500 ml-4 hover:text-yellow-700">Update</button>
+                  <button onClick={() => openDeleteModal(item)} className="text-red-500 ml-4 hover:text-red-700">Delete</button>
                 </TableCell>
               </TableRow>
             ))}
