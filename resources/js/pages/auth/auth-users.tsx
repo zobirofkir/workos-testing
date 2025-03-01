@@ -2,14 +2,11 @@ import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
-import UserTable from '@/components/user-table';
 import Pagination from '@/components/pagination';
+import TableComponent from '@/components/table-component';
 
 const breadcrumbs: BreadcrumbItem[] = [
-  {
-    title: 'Users',
-    href: '/users',
-  },
+  { title: 'Users', href: '/users' },
 ];
 
 const users = [
@@ -40,25 +37,18 @@ const AuthUser = () => {
       <div className="space-y-6 p-6 shadow-lg rounded-lg">
         <h2 className="text-2xl font-semibold dark:text-gray-100 text-gray-800">User List</h2>
 
-        {/* Buttons for Create, Update, Delete */}
-        <div className="flex justify-between items-center mb-4">
-          <button
-            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
-            onClick={() => console.log('Create new user')}
-          >
-            Create User
-          </button>
-        </div>
-
         {/* User Table */}
-        <UserTable users={currentUsers} />
+        <TableComponent
+          data={currentUsers}
+          columns={[
+            { label: 'Name', accessor: 'name' },
+            { label: 'Email', accessor: 'email' },
+            { label: 'Role', accessor: 'role' },
+          ]}
+        />
 
         {/* Pagination */}
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          paginate={paginate}
-        />
+        <Pagination currentPage={currentPage} totalPages={totalPages} paginate={paginate} />
       </div>
     </AppLayout>
   );
