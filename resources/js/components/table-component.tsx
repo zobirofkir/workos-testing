@@ -79,14 +79,16 @@ const TableComponent = <T,>({ data, columns, actions, onCreate, onUpdate }: Tabl
         </Table>
       </div>
 
-      {/* Pass modal data to the ModalForm component */}
-      <UserModalForm
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        mode={modalMode || 'create'}
-        currentItem={currentItem}
-        onSubmit={handleFormSubmit}
-      />
+      {/* Add smooth transition to the modal */}
+      <div className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${isModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <UserModalForm
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          mode={modalMode || 'create'}
+          currentItem={currentItem}
+          onSubmit={handleFormSubmit}
+        />
+      </div>
     </div>
   );
 };
