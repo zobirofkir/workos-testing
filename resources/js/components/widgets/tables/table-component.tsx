@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import UserModalForm from './forms/user-modal-form';
+import UserModalForm from '../../forms/user-modal-form';
 
 type TableComponentProps<T> = {
   data: T[];

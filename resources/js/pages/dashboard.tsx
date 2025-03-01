@@ -1,4 +1,4 @@
-import StateOverview from '@/components/state-overview';
+import StateOverview from '@/components/widgets/overview/state-overview';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';

@@ -1,9 +1,9 @@
+import Pagination from '@/components/pagination/pagination';
+import TableComponent from '@/components/widgets/tables/table-component';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
-import Pagination from '@/components/pagination';
-import TableComponent from '@/components/table-component';
 
 const breadcrumbs: BreadcrumbItem[] = [
   { title: 'Users', href: '/users' },
