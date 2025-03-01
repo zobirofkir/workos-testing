@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use Laravel\WorkOS\Http\Middleware\ValidateSessionWithWorkOS;
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
+    return inertia('welcome');
 })->name('home');
 
 Route::middleware([
@@ -13,8 +12,13 @@ Route::middleware([
     ValidateSessionWithWorkOS::class,
 ])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+        return inertia('dashboard');
     })->name('dashboard');
+
+    Route::get('/users', function () {
+        return inertia('auth/auth-users');
+    })->name('users');
+
 });
 
 require __DIR__.'/settings.php';
